@@ -26,7 +26,7 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy and run') {
             steps {
                 sh 'echo $jumphost; ssh jumpHost "/usr/bin/aws s3 cp s3://donet-build/project.tar . && tar -xvf project.tar && ls -l && pwd && cd LibraryApp/LibraryApp && dotnet run --urls http://0.0.0.0:5000 &"'
             }
